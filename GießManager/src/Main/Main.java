@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         GießBL bl = new GießBL();
 
-        GießManagerInput gmInput = new GießManagerInput();
+        GießManagerInput gmInput = new GießManagerInput(bl);
         GießManagerImages gmImages = new GießManagerImages();
         GießManagerStatus gmStatus = new GießManagerStatus();
 

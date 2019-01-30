@@ -84,6 +84,12 @@ public class GießManagerImages extends javax.swing.JFrame implements GießObser
             lbImages.setIcon(new ImageIcon("src/images/tot.jpg"));
             JOptionPane.showMessageDialog(null, "Planze ist tot!");
         } //--------------------------------------------------------------
+        else if(m.getTemp() > 40 || m.getTemp() < -10){
+            JOptionPane.showMessageDialog(null, "ungültiger Temperaturwert! (-10 --> +40)");
+        }
+        else if(m.getLastTime() < 0 || m.getLastTime() > 50){
+            JOptionPane.showMessageDialog(null, "ungültiger Zeitraum! (0 --> +50)");
+        }
         else {
             lbImages.setIcon(new ImageIcon("src/images/schön_1.jpg"));
             JOptionPane.showMessageDialog(null, "Pflanze optimal!");
