@@ -1,18 +1,18 @@
 package Main;
 
-import BL.GießBL;
-import GUI.GießManagerImages;
-import GUI.GießManagerInput;
-import GUI.GießManagerStatus;
+import BL.GiessBL;
+import GUI.GiessManagerImages;
+import GUI.GiessManagerInput;
+import GUI.GiessManagerStatus;
 
 public class Main {
 
     public static void main(String[] args) {
-        GießBL bl = new GießBL();
+        GiessBL bl = new GiessBL();
 
-        GießManagerInput gmInput = new GießManagerInput(bl);
-        GießManagerImages gmImages = new GießManagerImages();
-        GießManagerStatus gmStatus = new GießManagerStatus();
+        GiessManagerInput gmInput = new GiessManagerInput(bl);
+        GiessManagerImages gmImages = new GiessManagerImages();
+        GiessManagerStatus gmStatus = new GiessManagerStatus();
 
         bl.register(gmStatus);
         bl.register(gmImages);

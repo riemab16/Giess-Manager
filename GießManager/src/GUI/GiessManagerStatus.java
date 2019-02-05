@@ -1,13 +1,16 @@
 package GUI;
 
-import BL.GießManager;
+import BL.GiessManagerEntry;
 import javax.swing.ImageIcon;
-import observer.GießObserver;
+import javax.swing.JOptionPane;
+import observer.GiessObserver;
 
-public class GießManagerStatus extends javax.swing.JFrame implements GießObserver {
+public class GiessManagerStatus extends javax.swing.JFrame implements GiessObserver {
 
-    public GießManagerStatus() {
+    public GiessManagerStatus() {
         initComponents();
+        this.setTitle("GiessManagerStatus");
+    
     }
 
     @SuppressWarnings("unchecked")
@@ -39,24 +42,14 @@ public class GießManagerStatus extends javax.swing.JFrame implements GießObser
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
-    public void update(GießManager m) {
-        if (m.getTemp() > 0 && m.getLastTime() > 24) {
-            lbStatus.setIcon(new ImageIcon("src/images/gießkanne.jpg"));
-        } else if (m.getTemp() > 10 && m.getLastTime() > 16) {
-            lbStatus.setIcon(new ImageIcon("src/images/gießkanne.jpg"));
-        } else if (m.getTemp() > 20 && m.getLastTime() > 10) {
-            lbStatus.setIcon(new ImageIcon("src/images/gießkanne.jpg"));
-        } else if (m.getTemp() > 30 && m.getLastTime() > 6) {
-            lbStatus.setIcon(new ImageIcon("src/images/gießkanne.jpg"));
+    public void update(GiessManagerEntry m) {
+     if (m.getTemp() > 12 && m.getLastTime() > 24 && m.getLastTime() <= 35) {
+            lbStatus.setIcon(new ImageIcon("src/images/giesskanne.jpg"));
+    
         } //--------------------------------------------------------------
-        else if (m.getTemp() > 0 && m.getLastTime() > 30) {
+         else if (m.getTemp() > 12 && m.getLastTime() > 35) {
             lbStatus.setIcon(new ImageIcon("src/images/daumenrunter.jpg"));
-        } else if (m.getTemp() > 10 && m.getLastTime() > 24) {
-            lbStatus.setIcon(new ImageIcon("src/images/daumenrunter.jpg"));
-        } else if (m.getTemp() > 20 && m.getLastTime() > 16) {
-            lbStatus.setIcon(new ImageIcon("src/images/daumenrunter.jpg"));
-        } else if (m.getTemp() > 30 && m.getLastTime() > 10) {
-            lbStatus.setIcon(new ImageIcon("src/images/daumenrunter.jpg"));
+            
         } //--------------------------------------------------------------
         else {
             lbStatus.setIcon(new ImageIcon("src/images/daumenhoch.jpg"));

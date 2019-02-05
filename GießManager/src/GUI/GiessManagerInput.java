@@ -5,21 +5,23 @@
  */
 package GUI;
 
-import BL.GießBL;
-import BL.GießManager;
+import BL.GiessBL;
+import BL.GiessManagerEntry;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author ASUS
  */
-public class GießManagerInput extends javax.swing.JFrame {
-    private GießBL bl;
+public class GiessManagerInput extends javax.swing.JFrame {
+    private GiessBL bl;
     /**
      * Creates new form GießManagerInput
      */
-    public GießManagerInput(GießBL bl) {
+    public GiessManagerInput(GiessBL bl) {
         initComponents();
+        this.setTitle("GiessManagerInput");
+        this.setLocationRelativeTo(null);
         this.bl = bl;
     }
 
@@ -96,7 +98,7 @@ public class GießManagerInput extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
-        bl.addEntry(new GießManager(LocalDateTime.now(), (Double) spTemp.getValue(), (Double) spGegossen.getValue()));
+        bl.addEntry(new GiessManagerEntry(LocalDateTime.now(), (Double) spTemp.getValue(), (Double) spGegossen.getValue()));
     }//GEN-LAST:event_btAddActionPerformed
 
    

@@ -5,22 +5,24 @@
  */
 package GUI;
 
-import BL.GießManager;
+import BL.GiessManagerEntry;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import observer.GießObserver;
+import observer.GiessObserver;
 
 /**
  *
  * @author ASUS
  */
-public class GießManagerImages extends javax.swing.JFrame implements GießObserver {
+public class GiessManagerImages extends javax.swing.JFrame implements GiessObserver {
 
     /**
      * Creates new form GießManagerImages
      */
-    public GießManagerImages() {
+    public GiessManagerImages() {
         initComponents();
+        this.setLocation(400,0);
+        this.setTitle("GiessManagerImages");
     }
 
     @SuppressWarnings("unchecked")
@@ -57,32 +59,16 @@ public class GießManagerImages extends javax.swing.JFrame implements GießObser
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void update(GießManager m) {
-        if (m.getTemp() > 0 && m.getLastTime() > 24) {
+    public void update(GiessManagerEntry m) {
+        if (m.getTemp() > 12 && m.getLastTime() > 24 && m.getLastTime() <= 35) {
             lbImages.setIcon(new ImageIcon("src/images/eingehend.jpg"));
             JOptionPane.showMessageDialog(null, "Bitte gießen!");
-        } else if (m.getTemp() > 10 && m.getLastTime() > 16) {
-            lbImages.setIcon(new ImageIcon("src/images/eingehend.jpg"));
-            JOptionPane.showMessageDialog(null, "Bitte gießen!");
-        } else if (m.getTemp() > 20 && m.getLastTime() > 10) {
-            lbImages.setIcon(new ImageIcon("src/images/eingehend.jpg"));
-            JOptionPane.showMessageDialog(null, "Bitte gießen!");
-        } else if (m.getTemp() > 30 && m.getLastTime() > 6) {
-            lbImages.setIcon(new ImageIcon("src/images/eingehend.jpg"));
-            JOptionPane.showMessageDialog(null, "Bitte gießen!");
+    
         } //--------------------------------------------------------------
-        else if (m.getTemp() > 0 && m.getLastTime() > 30) {
+         else if (m.getTemp() > 12 && m.getLastTime() > 35) {
             lbImages.setIcon(new ImageIcon("src/images/tot.jpg"));
             JOptionPane.showMessageDialog(null, "Planze ist tot!");
-        } else if (m.getTemp() > 10 && m.getLastTime() > 24) {
-            lbImages.setIcon(new ImageIcon("src/images/tot.jpg"));
-            JOptionPane.showMessageDialog(null, "Planze ist tot!");
-        } else if (m.getTemp() > 20 && m.getLastTime() > 16) {
-            lbImages.setIcon(new ImageIcon("src/images/tot.jpg"));
-            JOptionPane.showMessageDialog(null, "Planze ist tot!");
-        } else if (m.getTemp() > 30 && m.getLastTime() > 10) {
-            lbImages.setIcon(new ImageIcon("src/images/tot.jpg"));
-            JOptionPane.showMessageDialog(null, "Planze ist tot!");
+  
         } //--------------------------------------------------------------
         else if(m.getTemp() > 40 || m.getTemp() < -10){
             JOptionPane.showMessageDialog(null, "ungültiger Temperaturwert! (-10 --> +40)");
@@ -91,7 +77,7 @@ public class GießManagerImages extends javax.swing.JFrame implements GießObser
             JOptionPane.showMessageDialog(null, "ungültiger Zeitraum! (0 --> +50)");
         }
         else {
-            lbImages.setIcon(new ImageIcon("src/images/schön_1.jpg"));
+            lbImages.setIcon(new ImageIcon("src/images/schön.jpg"));
             JOptionPane.showMessageDialog(null, "Pflanze optimal!");
         }
     }
